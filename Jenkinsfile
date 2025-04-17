@@ -1,9 +1,6 @@
 pipeline {
   agent any
-  tools {
-    nodejs "NODEJS"
-    dockerTool "DOCKER"
-  }
+
   stages {
     stage('Clonar Repositorio') {
       steps {
@@ -12,9 +9,14 @@ pipeline {
     }
     stage('Instalar Dependencias') {
       steps {
-        sh 'npm install'
+        cmd 'npm install'
       }
     }
+    stage('Ejecutar Pruebas') {
+      steps {
+        bat 'npm run test'
+      }
+    }  
     stage('Creacion contenedores') {
       steps {        
         sh 'docker build -t task-api .'
