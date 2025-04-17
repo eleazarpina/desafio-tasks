@@ -9,7 +9,7 @@ pipeline {
     }
     stage('Instalar Dependencias') {
       steps {
-        cmd 'npm install'
+        bat 'npm install'
       }
     }
     stage('Ejecutar Pruebas') {
@@ -19,7 +19,7 @@ pipeline {
     }  
     stage('Creacion contenedores') {
       steps {        
-        sh 'docker build -t task-api .'
+        bat 'docker build -t task-api .'
       }
     }
   }
