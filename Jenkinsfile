@@ -1,6 +1,7 @@
 pipeline {
   agent any
   tools {nodejs "NODEJS"}
+  tools {docker "DOCKER"}
   stages {
     stage('Clonar Repositorio') {
       steps {
